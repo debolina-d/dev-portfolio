@@ -21,11 +21,11 @@ const Experience = () => {
             icon={<ExperienceIcon order={`0${index + 1}`} />}
             des={card.desc}
             animationSpeed={5.1 - index * 0.5}
-            colors={[
+            colors={
               index === 0 ? [[34, 211, 238], [59, 130, 246]] : 
               index === 1 ? [[255, 166, 158], [221, 255, 247]] : 
               [[125, 211, 252]]
-            ]}
+            }
             bgColor={
               index === 0 ? "bg-cyan-600" : 
               index === 1 ? "bg-pink-900" : 

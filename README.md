@@ -143,7 +143,6 @@ npm run start        # Start production server
 npm run lint         # Run ESLint
 ```
 
-## 👤 About
 
 **Debolina Das**
 - AI/ML Engineer & Full-Stack Developer
