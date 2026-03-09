@@ -1,17 +1,19 @@
 "use client";
 
 import { navItems } from "@/data";
+import dynamic from "next/dynamic";
 
-import Hero from "@/components/Hero";
-import Grid from "@/components/Grid";
-import Footer from "@/components/Footer";
-import Experience from "@/components/Experience";
-import RecentProjects from "@/components/RecentProjects";
-import Education from "@/components/Education";
-import AchievementsPublications from "@/components/AchievementsPublications";
-import Languages from "@/components/Languages";
-import Certifications from "@/components/Certifications";
-import { FloatingNav } from "@/components/ui/FloatingNavbar";
+// Dynamically import all components that might use browser APIs
+const Hero = dynamic(() => import("@/components/Hero"), { ssr: false });
+const Grid = dynamic(() => import("@/components/Grid"), { ssr: false });
+const Footer = dynamic(() => import("@/components/Footer"), { ssr: false });
+const RecentProjects = dynamic(() => import("@/components/RecentProjects"), { ssr: false });
+const Education = dynamic(() => import("@/components/Education"), { ssr: false });
+const AchievementsPublications = dynamic(() => import("@/components/AchievementsPublications"), { ssr: false });
+const Languages = dynamic(() => import("@/components/Languages"), { ssr: false });
+const Certifications = dynamic(() => import("@/components/Certifications"), { ssr: false });
+const Experience = dynamic(() => import("@/components/Experience"), { ssr: false });
+const FloatingNav = dynamic(() => import("@/components/ui/FloatingNavbar").then(mod => ({ default: mod.FloatingNav })), { ssr: false });
 
 const Home = () => {
   return (
