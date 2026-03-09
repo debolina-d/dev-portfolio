@@ -5,8 +5,6 @@ import { IoCopyOutline } from "react-icons/io5";
 import Lottie from "react-lottie";
 
 import { cn } from "@/lib/utils";
-
-
 import { BackgroundGradientAnimation } from "./GradientBg";
 import GridGlobe from "./GridGlobe";
 import animationData from "@/data/confetti.json";
@@ -52,8 +50,46 @@ export const BentoGridItem = ({
   titleClassName?: string;
   spareImg?: string;
 }) => {
-  const leftLists = ["ReactJS", "Express", "Typescript"];
-  const rightLists = ["VueJS", "NuxtJS", "GraphQL"];
+  const techStack = [
+    "Python",
+    "Java",
+    "Web Development",
+    "MySQL",
+    "SQL",
+    "ML",
+    "Deep Learning",
+    "CNN",
+    "LLMs",
+    "Agentic AI",
+    "LangChain",
+    "LangGraph",
+    "LangSmith",
+    "RAG",
+    "ChromaDB",
+    "FastAPI",
+    "REST APIs",
+    "Docker",
+    "Kubernetes",
+    "Prometheus",
+    "Grafana",
+    "Git",
+    "GitHub",
+    "YAML",
+    "Figma",
+  ];
+  const techTagStyles = [
+    "bg-purple/10 border-purple/30 text-purple-300 opacity-80",
+    "bg-blue-500/10 border-blue-500/30 text-blue-300 opacity-80",
+    "bg-green-500/10 border-green-500/30 text-green-300 opacity-80",
+  ];
+  const techRows = [
+    { align: "justify-start", items: techStack.slice(0, 4) },
+    { align: "justify-end", items: techStack.slice(4, 8) },
+    { align: "justify-center", items: techStack.slice(8, 12) },
+    { align: "justify-end", items: techStack.slice(12, 16) },
+    { align: "justify-start", items: techStack.slice(16, 20) },
+    { align: "justify-center", items: techStack.slice(20) },
+  ];
 
   const [copied, setCopied] = useState(false);
 
@@ -67,7 +103,7 @@ export const BentoGridItem = ({
   };
 
   const handleCopy = () => {
-    const text = "hsu@jsmastery.pro";
+    const text = "diyalinad13@gmail.com";
     navigator.clipboard.writeText(text);
     setCopied(true);
   };
@@ -133,38 +169,123 @@ export const BentoGridItem = ({
           <div
             className={`font-sans text-lg lg:text-3xl max-w-96 font-bold z-10`}
           >
-            {title}
+            {id === 1 ? "My Tech Stack" : title}
           </div>
 
           {/* for the github 3d globe */}
           {id === 2 && <GridGlobe />}
 
-          {/* Tech stack list div */}
+          {/* Animated code deployment visualization for card 3 */}
           {id === 3 && (
-            <div className="flex gap-1 lg:gap-5 w-fit absolute -right-3 lg:-right-2">
-              {/* tech stack lists */}
-              <div className="flex flex-col gap-3 md:gap-3 lg:gap-8">
-                {leftLists.map((item, i) => (
-                  <span
-                    key={i}
-                    className="lg:py-4 lg:px-3 py-2 px-3 text-xs lg:text-base opacity-50 
-                    lg:opacity-100 rounded-lg text-center bg-[#10132E]"
-                  >
-                    {item}
-                  </span>
-                ))}
-                <span className="lg:py-4 lg:px-3 py-4 px-3  rounded-lg text-center bg-[#10132E]"></span>
+            <div className="absolute inset-0 flex items-center justify-center opacity-20">
+              <div className="w-full h-full relative">
+                {/* Animated grid lines */}
+                <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:50px_50px]" />
+                
+                {/* Floating code blocks */}
+                <div className="absolute top-10 left-10 animate-float">
+                  <div className="bg-purple/10 border border-purple/30 rounded px-3 py-2 text-xs font-mono text-purple">
+                    {'<AI />'}
+                  </div>
+                </div>
+                <div className="absolute top-32 right-20 animate-float" style={{ animationDelay: '1s' }}>
+                  <div className="bg-blue-500/10 border border-blue-500/30 rounded px-3 py-2 text-xs font-mono text-blue-400">
+                    {'deploy()'}
+                  </div>
+                </div>
+                <div className="absolute bottom-32 left-20 animate-float" style={{ animationDelay: '2s' }}>
+                  <div className="bg-green-500/10 border border-green-500/30 rounded px-3 py-2 text-xs font-mono text-green-400">
+                    {'scale ↑'}
+                  </div>
+                </div>
+                <div className="absolute bottom-20 right-32 animate-float" style={{ animationDelay: '1.5s' }}>
+                  <div className="bg-purple/10 border border-purple/30 rounded px-3 py-2 text-xs font-mono text-purple">
+                    {'build ✓'}
+                  </div>
+                </div>
+                
+                {/* Pulsing dots */}
+                <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-purple rounded-full animate-ping" />
+                <div className="absolute top-1/2 right-1/3 w-2 h-2 bg-blue-500 rounded-full animate-ping" style={{ animationDelay: '0.5s' }} />
+                <div className="absolute bottom-1/3 left-1/2 w-2 h-2 bg-green-500 rounded-full animate-ping" style={{ animationDelay: '1s' }} />
               </div>
-              <div className="flex flex-col gap-3 md:gap-3 lg:gap-8">
-                <span className="lg:py-4 lg:px-3 py-4 px-3  rounded-lg text-center bg-[#10132E]"></span>
-                {rightLists.map((item, i) => (
-                  <span
-                    key={i}
-                    className="lg:py-4 lg:px-3 py-2 px-3 text-xs lg:text-base opacity-50 
-                    lg:opacity-100 rounded-lg text-center bg-[#10132E]"
+            </div>
+          )}
+
+          {/* Tech stack list div */}
+          {id === 1 && (
+            <div className="relative mt-4 flex-1 min-h-[300px]">
+              <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:30px_30px] opacity-50" />
+
+              {/* Reuse deploy-card color language and motion */}
+              <div className="absolute inset-0 z-[1] opacity-30 pointer-events-none">
+                <div className="absolute top-1/4 left-1/4">
+                  <div className="w-2.5 h-2.5 bg-purple-300 rounded-full shadow-[0_0_14px_4px_rgba(168,85,247,0.55)]" />
+                  <div className="absolute inset-0 w-2.5 h-2.5 bg-purple rounded-full animate-ping" />
+                </div>
+                <div
+                  className="absolute top-1/2 right-1/3"
+                  style={{ animationDelay: "0.5s" }}
+                >
+                  <div className="w-2.5 h-2.5 bg-blue-300 rounded-full shadow-[0_0_14px_4px_rgba(59,130,246,0.55)]" />
+                  <div className="absolute inset-0 w-2.5 h-2.5 bg-blue-500 rounded-full animate-ping" />
+                </div>
+                <div
+                  className="absolute bottom-1/3 left-1/2"
+                  style={{ animationDelay: "1s" }}
+                >
+                  <div className="w-2.5 h-2.5 bg-green-300 rounded-full shadow-[0_0_14px_4px_rgba(34,197,94,0.55)]" />
+                  <div className="absolute inset-0 w-2.5 h-2.5 bg-green-500 rounded-full animate-ping" />
+                </div>
+                <div
+                  className="absolute top-[18%] right-[18%]"
+                  style={{ animationDelay: "0.3s" }}
+                >
+                  <div className="w-2 h-2 bg-purple-300 rounded-full shadow-[0_0_12px_3px_rgba(168,85,247,0.45)]" />
+                  <div className="absolute inset-0 w-2 h-2 bg-purple rounded-full animate-ping" />
+                </div>
+                <div
+                  className="absolute top-[62%] left-[18%]"
+                  style={{ animationDelay: "1.4s" }}
+                >
+                  <div className="w-2 h-2 bg-blue-300 rounded-full shadow-[0_0_12px_3px_rgba(59,130,246,0.45)]" />
+                  <div className="absolute inset-0 w-2 h-2 bg-blue-500 rounded-full animate-ping" />
+                </div>
+                <div
+                  className="absolute bottom-[18%] right-[22%]"
+                  style={{ animationDelay: "0.9s" }}
+                >
+                  <div className="w-2 h-2 bg-green-300 rounded-full shadow-[0_0_12px_3px_rgba(34,197,94,0.45)]" />
+                  <div className="absolute inset-0 w-2 h-2 bg-green-500 rounded-full animate-ping" />
+                </div>
+              </div>
+
+              <div className="relative z-10 h-full pt-5 pb-1 flex flex-col justify-between">
+                {techRows.map((row, rowIndex) => (
+                  <div
+                    key={`row-${rowIndex}`}
+                    className={`w-full px-1 md:px-2 flex flex-wrap gap-2.5 md:gap-3.5 ${row.align}`}
                   >
-                    {item}
-                  </span>
+                    {row.items.map((skill, skillIndex) => {
+                      const styleIndex = (rowIndex + skillIndex) % techTagStyles.length;
+                      const firstRowOffsets =
+                        rowIndex === 0
+                          ? {
+                              Python: "mt-2",
+                              Java: "mt-3",
+                            }
+                          : {};
+                      return (
+                        <span
+                          key={skill}
+                          className={`px-2 py-1 text-[10px] md:text-xs rounded border font-mono animate-float ${techTagStyles[styleIndex]} ${firstRowOffsets[skill as keyof typeof firstRowOffsets] ?? ""}`}
+                          style={{ animationDelay: `${((rowIndex * 3 + skillIndex) % 8) * 0.2}s` }}
+                        >
+                          {skill}
+                        </span>
+                      );
+                    })}
+                  </div>
                 ))}
               </div>
             </div>

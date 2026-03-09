@@ -9,7 +9,7 @@ const Grid = () => {
           <BentoGridItem
             id={item.id}
             key={i}
-            title={item.title}
+            title={item.id === 5 ? <span className="text-base lg:text-xl">{item.title}</span> : item.id === 4 ? <span className="text-base lg:text-xl">{item.title}</span> : item.title}
             description={item.description}
             // remove icon prop
             // remove original classname condition
