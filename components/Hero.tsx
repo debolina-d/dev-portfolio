@@ -30,7 +30,7 @@ const Hero = () => {
     }, 2500);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [resumeTexts.length]);
 
   const handleResumeDownload = () => {
     const link = document.createElement('a');
@@ -97,15 +97,10 @@ const Hero = () => {
 
           <div onClick={handleResumeDownload} className="cursor-pointer">
             <MagicButton
-              title={
-                <span 
-                  className={`transition-opacity duration-300 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
-                >
-                  {resumeTexts[currentTextIndex]}
-                </span>
-              }
+              title={resumeTexts[currentTextIndex]}
               icon={<FaLocationArrow />}
               position="right"
+              otherClasses={`transition-opacity duration-300 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
             />
           </div>
         </div>

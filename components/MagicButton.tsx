@@ -34,7 +34,7 @@ const MagicButton = ({
              bg-slate-950 px-7 text-sm font-medium text-white backdrop-blur-3xl gap-2 ${otherClasses}`}
       >
         {position === "left" && icon}
-        {title}
+        <span className="transition-opacity duration-300">{title}</span>
         {position === "right" && icon}
       </span>
     </button>
