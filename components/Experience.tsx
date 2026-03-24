@@ -7,11 +7,11 @@ import { CanvasRevealEffect } from "./ui/CanvasRevealEffect";
 
 const Experience = () => {
   return (
-    <section className="w-full py-20" id="experience">
+    <section className="w-full py-16 sm:py-20" id="experience">
       <h1 className="heading">
         My <span className="text-purple">Work Experience</span>
       </h1>
-      <div className="my-20 flex flex-col lg:flex-row items-center justify-center w-full gap-4">
+      <div className="my-20 flex flex-col lg:flex-row items-center justify-center w-full gap-4 px-4">
         {workExperience.map((card, index) => (
           <Card
             key={card.id}
@@ -65,7 +65,7 @@ const Card = ({
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       className="border border-black/[0.2] group/canvas-card flex items-center justify-center
-       dark:border-white/[0.2] max-w-sm w-full mx-auto p-4 relative lg:h-[35rem] rounded-3xl transition-all duration-300 hover:scale-[1.02] hover:border-purple/50"
+       dark:border-white/[0.2] max-w-xs sm:max-w-sm w-full mx-auto p-3 sm:p-4 relative h-[28rem] sm:h-[32rem] lg:h-[35rem] rounded-3xl transition-all duration-300 hover:scale-[1.02] hover:border-purple/50"
       style={{
         background: "rgb(4,7,29)",
         backgroundColor:
@@ -77,12 +77,23 @@ const Card = ({
       <Icon className="absolute h-10 w-10 -top-3 -right-3 dark:text-white text-black opacity-30" />
       <Icon className="absolute h-10 w-10 -bottom-3 -right-3 dark:text-white text-black opacity-30" />
 
+      {/* Mobile: Always show colored background */}
+      <div className="sm:hidden h-full w-full absolute inset-0">
+        <CanvasRevealEffect
+          animationSpeed={animationSpeed}
+          containerClassName={`${bgColor} rounded-3xl overflow-hidden`}
+          colors={colors}
+          dotSize={2}
+        />
+      </div>
+
+      {/* Desktop: Show on hover */}
       <AnimatePresence>
         {hovered && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="h-full w-full absolute inset-0"
+            className="hidden sm:block h-full w-full absolute inset-0"
           >
             <CanvasRevealEffect
               animationSpeed={animationSpeed}
@@ -94,36 +105,38 @@ const Card = ({
         )}
       </AnimatePresence>
 
-      <div className="relative z-20 px-10">
+      <div className="relative z-20 px-6 sm:px-8 lg:px-10">
+        {/* Desktop: Default state (hidden on mobile) */}
         <div
-          className="text-center group-hover/canvas-card:-translate-y-4 absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] 
+          className="hidden sm:block text-center group-hover/canvas-card:-translate-y-4 absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] 
         group-hover/canvas-card:opacity-0 transition duration-200 w-full mx-auto flex flex-col items-center justify-center animate-float"
         >
-          <h3 className="text-xl font-bold text-white mb-2">{title}</h3>
-          <p className="text-purple font-semibold text-sm mb-1">{company}</p>
-          <p className="text-white-200 text-xs">{duration}</p>
+          <h3 className="text-base sm:text-lg md:text-xl font-bold text-white mb-2">{title}</h3>
+          <p className="text-purple font-semibold text-[10px] sm:text-xs md:text-sm mb-1">{company}</p>
+          <p className="text-white-200 text-[10px] sm:text-xs">{duration}</p>
         </div>
-        <div className="opacity-0 group-hover/canvas-card:opacity-100 transition duration-200">
+        
+        {/* Mobile: Always show detailed view, Desktop: Show on hover */}
+        <div className="opacity-100 sm:opacity-0 sm:group-hover/canvas-card:opacity-100 transition duration-200">
           <h2
-            className="dark:text-white text-center text-2xl relative z-10 text-black mt-4 font-bold group-hover/canvas-card:text-white 
-           group-hover/canvas-card:-translate-y-2 transition duration-200"
+            className="text-white text-center text-lg sm:text-xl md:text-2xl relative z-10 mt-4 font-bold
+           sm:group-hover/canvas-card:-translate-y-2 transition duration-200"
           >
             {title}
           </h2>
           <p
-            className="text-purple font-semibold text-center text-base relative z-10 mt-2 group-hover/canvas-card:-translate-y-2 transition duration-200"
+            className="text-purple font-semibold text-center text-xs sm:text-sm md:text-base relative z-10 mt-2 sm:group-hover/canvas-card:-translate-y-2 transition duration-200"
           >
             {company}
           </p>
           <p
-            className="text-sm relative z-10 mt-4 group-hover/canvas-card:text-white text-center
-           group-hover/canvas-card:-translate-y-2 transition duration-200"
-            style={{ color: "#E4ECFF" }}
+            className="text-[10px] sm:text-xs relative z-10 mt-4 text-white text-center
+           sm:group-hover/canvas-card:-translate-y-2 transition duration-200"
           >
             {des}
           </p>
           <p
-            className="text-xs relative z-10 mt-3 text-center group-hover/canvas-card:-translate-y-2 transition duration-200"
+            className="text-[10px] sm:text-xs relative z-10 mt-3 text-center sm:group-hover/canvas-card:-translate-y-2 transition duration-200"
             style={{ color: "#BEC1DD" }}
           >
             {duration}

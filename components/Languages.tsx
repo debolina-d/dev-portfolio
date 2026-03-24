@@ -32,28 +32,28 @@ const Languages = () => {
   }, []);
 
   return (
-    <div ref={sectionRef} className="py-20 w-full">
+    <div ref={sectionRef} className="py-16 sm:py-20 w-full">
       <h1 className="heading opacity-0 animate-fadeIn" style={{ animationDelay: '0.1s', animationFillMode: 'forwards' }}>
         <span className="text-purple">Languages</span>
       </h1>
 
       <div className="w-full mt-12 max-w-4xl mx-auto px-4">
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
           {languages.map((lang, index) => (
             <div
               key={lang.id}
-              className="lang-card bg-black-100 border border-white/[0.1] rounded-lg p-6 hover:border-purple/50 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-purple/20 opacity-0"
+              className="lang-card bg-black-100 border border-white/[0.1] rounded-lg p-4 sm:p-6 hover:border-purple/50 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-purple/20 opacity-0"
               style={{ transitionDelay: `${index * 100}ms` }}
             >
               <div className="flex items-center justify-between mb-4">
-                <h3 className="text-xl md:text-2xl font-bold text-white">
+                <h3 className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold text-white">
                   {lang.name}
                 </h3>
                 <div className="flex gap-1">
                   {[...Array(5)].map((_, i) => (
                     <div
                       key={i}
-                      className={`w-2 h-8 rounded-full transition-all duration-500 ${
+                      className={`w-1.5 h-6 sm:w-2 sm:h-8 rounded-full transition-all duration-500 ${
                         i < lang.level
                           ? "bar-fill bg-white/10"
                           : "bg-white/10"
@@ -62,7 +62,7 @@ const Languages = () => {
                   ))}
                 </div>
               </div>
-              <p className="text-white-200 text-sm">
+              <p className="text-white-200 text-[10px] sm:text-xs md:text-sm">
                 {lang.proficiency}
               </p>
             </div>

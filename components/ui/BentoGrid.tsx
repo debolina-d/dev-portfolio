@@ -83,12 +83,13 @@ export const BentoGridItem = ({
     "bg-green-500/10 border-green-500/30 text-green-300 opacity-80",
   ];
   const techRows = [
-    { align: "justify-start", items: techStack.slice(0, 4) },
-    { align: "justify-end", items: techStack.slice(4, 8) },
-    { align: "justify-center", items: techStack.slice(8, 12) },
-    { align: "justify-end", items: techStack.slice(12, 16) },
-    { align: "justify-start", items: techStack.slice(16, 20) },
-    { align: "justify-center", items: techStack.slice(20) },
+    { align: "justify-start", items: techStack.slice(0, 3), spacing: "gap-4 lg:gap-6" },
+    { align: "justify-end", items: techStack.slice(3, 7), spacing: "gap-3 lg:gap-5" },
+    { align: "justify-center", items: techStack.slice(7, 11), spacing: "gap-4 lg:gap-6" },
+    { align: "justify-start", items: techStack.slice(11, 15), spacing: "gap-3 lg:gap-5" },
+    { align: "justify-end", items: techStack.slice(15, 19), spacing: "gap-4 lg:gap-6" },
+    { align: "justify-center", items: techStack.slice(19, 22), spacing: "gap-5 lg:gap-7" },
+    { align: "justify-start", items: techStack.slice(22), spacing: "gap-4 lg:gap-6" },
   ];
 
   const [copied, setCopied] = useState(false);
@@ -212,81 +213,118 @@ export const BentoGridItem = ({
             </div>
           )}
 
+
+
           {/* Tech stack list div */}
           {id === 1 && (
             <div className="relative mt-4 flex-1 min-h-[300px]">
-              <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:30px_30px] opacity-50" />
+              {/* Desktop Design */}
+              <div className="hidden sm:block">
+                <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:30px_30px] opacity-50" />
 
-              {/* Reuse deploy-card color language and motion */}
-              <div className="absolute inset-0 z-[1] opacity-30 pointer-events-none">
-                <div className="absolute top-1/4 left-1/4">
-                  <div className="w-2.5 h-2.5 bg-purple-300 rounded-full shadow-[0_0_14px_4px_rgba(168,85,247,0.55)]" />
-                  <div className="absolute inset-0 w-2.5 h-2.5 bg-purple rounded-full animate-ping" />
+                {/* Reuse deploy-card color language and motion */}
+                <div className="absolute inset-0 z-[1] opacity-30 pointer-events-none">
+                  <div className="absolute top-1/4 left-1/4">
+                    <div className="w-2.5 h-2.5 bg-purple-300 rounded-full shadow-[0_0_14px_4px_rgba(168,85,247,0.55)]" />
+                    <div className="absolute inset-0 w-2.5 h-2.5 bg-purple rounded-full animate-ping" />
+                  </div>
+                  <div
+                    className="absolute top-1/2 right-1/3"
+                    style={{ animationDelay: "0.5s" }}
+                  >
+                    <div className="w-2.5 h-2.5 bg-blue-300 rounded-full shadow-[0_0_14px_4px_rgba(59,130,246,0.55)]" />
+                    <div className="absolute inset-0 w-2.5 h-2.5 bg-blue-500 rounded-full animate-ping" />
+                  </div>
+                  <div
+                    className="absolute bottom-1/3 left-1/2"
+                    style={{ animationDelay: "1s" }}
+                  >
+                    <div className="w-2.5 h-2.5 bg-green-300 rounded-full shadow-[0_0_14px_4px_rgba(34,197,94,0.55)]" />
+                    <div className="absolute inset-0 w-2.5 h-2.5 bg-green-500 rounded-full animate-ping" />
+                  </div>
+                  <div
+                    className="absolute top-[18%] right-[18%]"
+                    style={{ animationDelay: "0.3s" }}
+                  >
+                    <div className="w-2 h-2 bg-purple-300 rounded-full shadow-[0_0_12px_3px_rgba(168,85,247,0.45)]" />
+                    <div className="absolute inset-0 w-2 h-2 bg-purple rounded-full animate-ping" />
+                  </div>
+                  <div
+                    className="absolute top-[62%] left-[18%]"
+                    style={{ animationDelay: "1.4s" }}
+                  >
+                    <div className="w-2 h-2 bg-blue-300 rounded-full shadow-[0_0_12px_3px_rgba(59,130,246,0.45)]" />
+                    <div className="absolute inset-0 w-2 h-2 bg-blue-500 rounded-full animate-ping" />
+                  </div>
+                  <div
+                    className="absolute bottom-[18%] right-[22%]"
+                    style={{ animationDelay: "0.9s" }}
+                  >
+                    <div className="w-2 h-2 bg-green-300 rounded-full shadow-[0_0_12px_3px_rgba(34,197,94,0.45)]" />
+                    <div className="absolute inset-0 w-2 h-2 bg-green-500 rounded-full animate-ping" />
+                  </div>
                 </div>
-                <div
-                  className="absolute top-1/2 right-1/3"
-                  style={{ animationDelay: "0.5s" }}
-                >
-                  <div className="w-2.5 h-2.5 bg-blue-300 rounded-full shadow-[0_0_14px_4px_rgba(59,130,246,0.55)]" />
-                  <div className="absolute inset-0 w-2.5 h-2.5 bg-blue-500 rounded-full animate-ping" />
-                </div>
-                <div
-                  className="absolute bottom-1/3 left-1/2"
-                  style={{ animationDelay: "1s" }}
-                >
-                  <div className="w-2.5 h-2.5 bg-green-300 rounded-full shadow-[0_0_14px_4px_rgba(34,197,94,0.55)]" />
-                  <div className="absolute inset-0 w-2.5 h-2.5 bg-green-500 rounded-full animate-ping" />
-                </div>
-                <div
-                  className="absolute top-[18%] right-[18%]"
-                  style={{ animationDelay: "0.3s" }}
-                >
-                  <div className="w-2 h-2 bg-purple-300 rounded-full shadow-[0_0_12px_3px_rgba(168,85,247,0.45)]" />
-                  <div className="absolute inset-0 w-2 h-2 bg-purple rounded-full animate-ping" />
-                </div>
-                <div
-                  className="absolute top-[62%] left-[18%]"
-                  style={{ animationDelay: "1.4s" }}
-                >
-                  <div className="w-2 h-2 bg-blue-300 rounded-full shadow-[0_0_12px_3px_rgba(59,130,246,0.45)]" />
-                  <div className="absolute inset-0 w-2 h-2 bg-blue-500 rounded-full animate-ping" />
-                </div>
-                <div
-                  className="absolute bottom-[18%] right-[22%]"
-                  style={{ animationDelay: "0.9s" }}
-                >
-                  <div className="w-2 h-2 bg-green-300 rounded-full shadow-[0_0_12px_3px_rgba(34,197,94,0.45)]" />
-                  <div className="absolute inset-0 w-2 h-2 bg-green-500 rounded-full animate-ping" />
+
+                <div className="relative z-10 h-full pt-6 pb-2 flex flex-col justify-between">
+                  {techRows.map((row, rowIndex) => (
+                    <div
+                      key={`row-${rowIndex}`}
+                      className={`w-full px-2 md:px-4 lg:px-6 flex flex-wrap ${row.spacing} ${row.align} mb-3 md:mb-4 lg:mb-5`}
+                    >
+                      {row.items.map((skill, skillIndex) => {
+                        const styleIndex = (rowIndex + skillIndex) % techTagStyles.length;
+                        const verticalOffsets = {
+                          0: ["mt-1", "mt-3", "mt-0"],
+                          1: ["mt-2", "mt-0", "mt-4", "mt-1"],
+                          2: ["mt-0", "mt-3", "mt-1", "mt-2"],
+                          3: ["mt-4", "mt-1", "mt-0", "mt-3"],
+                          4: ["mt-2", "mt-0", "mt-3", "mt-1"],
+                          5: ["mt-1", "mt-2", "mt-0"],
+                          6: ["mt-0", "mt-2", "mt-1"],
+                        };
+                        const offsetClass = verticalOffsets[rowIndex as keyof typeof verticalOffsets]?.[skillIndex] || "";
+                        
+                        return (
+                          <span
+                            key={skill}
+                            className={`px-2 md:px-3 lg:px-4 py-1 md:py-1.5 lg:py-2 text-[9px] md:text-xs lg:text-sm rounded-md border font-mono animate-float transition-all duration-300 hover:scale-105 hover:shadow-lg ${techTagStyles[styleIndex]} ${offsetClass}`}
+                            style={{ animationDelay: `${((rowIndex * 3 + skillIndex) % 8) * 0.15}s` }}
+                          >
+                            {skill}
+                          </span>
+                        );
+                      })}
+                    </div>
+                  ))}
                 </div>
               </div>
 
-              <div className="relative z-10 h-full pt-5 pb-1 flex flex-col justify-between">
-                {techRows.map((row, rowIndex) => (
-                  <div
-                    key={`row-${rowIndex}`}
-                    className={`w-full px-1 md:px-2 flex flex-wrap gap-2.5 md:gap-3.5 ${row.align}`}
-                  >
-                    {row.items.map((skill, skillIndex) => {
-                      const styleIndex = (rowIndex + skillIndex) % techTagStyles.length;
-                      const firstRowOffsets =
-                        rowIndex === 0
-                          ? {
-                              Python: "mt-2",
-                              Java: "mt-3",
-                            }
-                          : {};
+              {/* Mobile Design */}
+              <div className="block sm:hidden">
+                <div className="relative h-full p-3">
+                  {/* Simplified tech stack grid */}
+                  <div className="grid grid-cols-2 gap-3">
+                    {techStack.map((tech, index) => {
+                      const colorSchemes = [
+                        "bg-gradient-to-r from-purple-500/20 to-pink-500/20 border-purple-400/30 text-purple-200",
+                        "bg-gradient-to-r from-blue-500/20 to-cyan-500/20 border-blue-400/30 text-blue-200",
+                        "bg-gradient-to-r from-emerald-500/20 to-teal-500/20 border-emerald-400/30 text-emerald-200",
+                        "bg-gradient-to-r from-orange-500/20 to-red-500/20 border-orange-400/30 text-orange-200",
+                        "bg-gradient-to-r from-indigo-500/20 to-purple-500/20 border-indigo-400/30 text-indigo-200",
+                      ];
+                      const colorIndex = index % colorSchemes.length;
                       return (
-                        <span
-                          key={skill}
-                          className={`px-2 py-1 text-[10px] md:text-xs rounded border font-mono animate-float ${techTagStyles[styleIndex]} ${firstRowOffsets[skill as keyof typeof firstRowOffsets] ?? ""}`}
-                          style={{ animationDelay: `${((rowIndex * 3 + skillIndex) % 8) * 0.2}s` }}
+                        <div
+                          key={tech}
+                          className={`text-center py-3 px-3 border rounded-xl text-xs font-semibold backdrop-blur-sm transition-all duration-300 hover:scale-105 ${colorSchemes[colorIndex]}`}
+                          style={{ animationDelay: `${index * 0.03}s` }}
                         >
-                          {skill}
-                        </span>
+                          {tech}
+                        </div>
                       );
                     })}
                   </div>
-                ))}
+                </div>
               </div>
             </div>
           )}

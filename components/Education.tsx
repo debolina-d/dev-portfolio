@@ -33,7 +33,7 @@ const Education = () => {
   }, []);
 
   return (
-    <div ref={sectionRef} className="py-20 w-full" id="education">
+    <div ref={sectionRef} className="py-16 sm:py-20 w-full" id="education">
       <h1 className="heading">
         My <span className="text-purple">Education</span>
       </h1>
@@ -71,13 +71,13 @@ const Education = () => {
               {/* Content */}
               <div className="w-full">
                 <div className="bg-black-100 border border-white/[0.1] rounded-lg p-6 hover:border-purple/50 transition-all duration-300 hover:scale-[1.02]">
-                  <h3 className="text-xl md:text-2xl font-bold text-white mb-2">
+                  <h3 className="text-base sm:text-xl md:text-2xl font-bold text-white mb-2">
                     {item.degree}
                   </h3>
-                  <p className="text-white-100 font-semibold mb-2">
+                  <p className="text-sm sm:text-base text-white-100 font-semibold mb-2">
                     {item.institution}
                   </p>
-                  <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-2 text-sm text-white-200">
+                  <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-2 text-xs sm:text-sm text-white-200">
                     <span>{item.duration}</span>
                     <span className="text-purple font-semibold">{item.grade}</span>
                   </div>

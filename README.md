@@ -2,9 +2,6 @@
 
 A modern, interactive portfolio website built with Next.js, featuring 3D animations, smooth transitions, and a comprehensive showcase of projects, experience, and achievements.
 
-## 🚀 Live Demo
-
-[View Portfolio](https://your-portfolio-url.com)
 
 ## ✨ Features
 

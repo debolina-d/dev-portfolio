@@ -27,28 +27,25 @@ const RecentProjects = () => {
   }, []);
 
   return (
-    <div ref={sectionRef} className="py-20" id="projects">
+    <div ref={sectionRef} className="py-16 sm:py-20" id="projects">
       <h1 className="heading opacity-0 animate-fadeIn" style={{ animationDelay: '0.1s', animationFillMode: 'forwards' }}>
         My <span className="text-purple">Projects</span>
       </h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10 px-4 max-w-7xl mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mt-10 px-1 sm:px-4 max-w-7xl mx-auto">
         {projects.map((item, index) => (
           <div
-            className="project-card opacity-0"
+            className="project-card opacity-0 w-full"
             key={item.id}
             style={{ transitionDelay: `${index * 100}ms` }}
           >
-            <PinContainer
-              title=""
-              href=""
-            >
-              <div className="w-80 h-72 flex flex-col p-6">
-                <h1 className="font-bold text-base text-white leading-tight mb-3 transition-colors duration-300 hover:text-purple">
+            {/* Mobile version without PinContainer */}
+            <div className="block sm:hidden w-full">
+              <div className="w-full h-auto min-h-[300px] flex flex-col p-4 bg-black-100/80 backdrop-blur-sm rounded-lg mx-2">
+                <h1 className="font-bold text-lg text-white leading-tight mb-4">
                   {item.title}
                 </h1>
-
                 <p
-                  className="text-sm leading-relaxed line-clamp-4"
+                  className="text-sm leading-relaxed flex-1 text-gray-300"
                   style={{
                     color: "#BEC1DD",
                   }}
@@ -56,7 +53,31 @@ const RecentProjects = () => {
                   {item.des}
                 </p>
               </div>
-            </PinContainer>
+            </div>
+            
+            {/* Desktop version with PinContainer */}
+            <div className="hidden sm:block">
+              <PinContainer
+                title=""
+                href=""
+                containerClassName="w-full"
+              >
+                <div className="w-full h-64 sm:h-72 md:w-80 md:h-72 flex flex-col p-4 sm:p-5 md:p-6 bg-black-100/80 backdrop-blur-sm rounded-lg">
+                  <h1 className="font-bold text-base sm:text-lg md:text-lg text-white leading-tight mb-3 sm:mb-4 line-clamp-2">
+                    {item.title}
+                  </h1>
+
+                  <p
+                    className="text-sm sm:text-base md:text-base leading-relaxed line-clamp-6 sm:line-clamp-7 flex-1 text-gray-300"
+                    style={{
+                      color: "#BEC1DD",
+                    }}
+                  >
+                    {item.des}
+                  </p>
+                </div>
+              </PinContainer>
+            </div>
           </div>
         ))}
       </div>
